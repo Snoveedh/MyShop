@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class ="container">
+
+    <div class class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rouded pt-4">
+            <h3 class="alert alert-light border rounded pt-4"> Create An Account</h3>
+            <form action="/signup" method="POST">
+
+                <!-- Where method=post,put,get,etc is used csrf should be used at thar place like below-->
+
+                {% csrf_token %}
+                
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
+
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="first_name" id="" value = "{{ values.first_name }}" class="form-control form-control-sm" placeholder="">
+                </div>
+
+                
+                <!-- last name -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="last_name" id="" value = "{{ values.last_name }}" class="form-control form-control-sm" placeholder="">
+                </div>
+
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" id="" value = "{{ values.phone }}" class="form-control form-control-sm" placeholder="9999999999">
+                </div>
+
+
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id="" value = "{{ values.email }}" class="form-control form-control-sm" placeholder="example@gmail.com">
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" class="form-control form-control-sm" placeholder="**********">
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <input class= "btn-btn-sm btn-info" type="submit" value="Create An Account">
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

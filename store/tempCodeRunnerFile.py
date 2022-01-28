@@ -1,0 +1,1 @@
+print(make_password('123456'))
